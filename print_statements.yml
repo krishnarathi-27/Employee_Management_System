@@ -1,0 +1,43 @@
+WELCOME_MESSAGE : '------------Welcome to employee management system--------------'
+
+ROW_NOT_EXISTS_MESSAGE : 'Error occured !!! Row does not exist'
+
+WRONG_INPUT_ENTERED_MESSAGE : 'Wrong input entered!! Please try again'
+
+PRINT_USERNAME : "Enter username:- "
+
+PRINT_PASSWORD : 'Enter password:- '
+
+ENTER_STRONG_PASSWORD : "Enter strong password:- "
+
+ENTER_ROLE : "Enter the role of the user:- "
+
+ENTER_GENDER : "Enter gender of employee:- "
+
+ENTER_PHONE_NO : "Enter employee phone number:- "
+
+ENTER_MAIL : "Enter employee mail id:- "
+
+ENTER_AGE : "Enter age of employee:- "
+
+WELCOME_ADMIN_MESSAGE : Welcome as Admin
+
+ENTER_EMP_ID : "Enter the employee id :- "
+
+ENTER_LEAVE_ID : "Enter leave id to update leave status:- "
+
+ENTER_LEAVE_STATUS : "Update status to:- cancel/approved/rejected:- "
+
+ENTER_SALARY_MONTH : "Enter month of salary:- "
+
+ENTER_SALARY_STATUS : "Enter status of salary:- "
+
+ENTER_DEFAULT_PASSWORD : 'Enter your default password: '
+
+ENTER_NEW_PASSWORD : 'Enter new password:- '
+
+CONFIRM_PASSWORD : 'Enter new password to confirm:- '
+
+PRINT_LOGIN : "Login into the system. You have total of 3 attempts"
+
+LOGIN_FAILED : Login failed!! Try again. Total attempts left

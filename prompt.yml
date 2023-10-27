@@ -32,10 +32,8 @@ UPDATE_DETAILS_PROMPT : |
 
 ATTEMPTS : 3
 
+PAID_LEAVES : 2
+
+BASE_SALARY : 20000
+
 DATABASE_NAME : 'employee_management.db'
-
-WELCOME_MESSAGE : '------------Welcome to employee management system--------------'
-
-ROW_NOT_EXISTS_MESSAGE : 'Error occured !!! Row does not exist'
-
-WRONG_INPUT_ENTERED_MESSAGE : 'Wrong input entered!! Please try again'

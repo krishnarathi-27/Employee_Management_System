@@ -8,4 +8,3 @@ def password_validation(password):
     else:
         return False
     
-#print(password_validation('Krishnarajiknl'))

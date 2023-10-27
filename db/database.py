@@ -1,22 +1,24 @@
 import hashlib
+import logging
 import sys
 from prettytable import PrettyTable
 from utils.exceptions import RowDoesNotExistException
 from utils.config_class import Config
+from db.queries.queries_config import QueriesConfig
 from .db_context_manager import DatabaseContextManager
-import db.query_base as q
 
+logger = logging.getLogger('database')
 
 def create_table(query) -> None:
     with DatabaseContextManager(Config.DATABASE_NAME) as connection:
         cursor = connection.cursor()
-        cursor.execute(q.QUERY_TO_ENABLE_FOREIGN_KEY)
+        cursor.execute(QueriesConfig.QUERY_TO_ENABLE_FOREIGN_KEY)
         cursor.execute(query)
 
 def add_data(query,*args) -> None:
     with DatabaseContextManager(Config.DATABASE_NAME) as connection:
         cursor = connection.cursor() 
-        cursor.execute(q.QUERY_TO_ENABLE_FOREIGN_KEY)
+        cursor.execute(QueriesConfig.QUERY_TO_ENABLE_FOREIGN_KEY)
         cursor.execute(query,*args)
 
 def fetch_user(query,username: str,password: str) -> str:
@@ -34,9 +36,10 @@ def delete_data(query,employee_id: int) -> None:
     with DatabaseContextManager(Config.DATABASE_NAME) as connection:
         cursor = connection.cursor()
         try:
-            cursor.execute(q.QUERY_TO_ENABLE_FOREIGN_KEY)
+            cursor.execute(QueriesConfig.QUERY_TO_ENABLE_FOREIGN_KEY)
             var = cursor.execute(query,(employee_id,))
             if var.rowcount == 0:
+                logging.critical(Config.ERROR_MESSAGE)
                 raise RowDoesNotExistException
         except RowDoesNotExistException:
             print(Config.ROW_NOT_EXISTS_MESSAGE)
@@ -47,17 +50,18 @@ def display_data(query,table_schema: list) -> None:
         cursor = connection.cursor()
         var = cursor.execute(query)
         if var.rowcount == 0:
+            logging.critical(Config.ERROR_MESSAGE)
             raise RowDoesNotExistException(Config.ROW_NOT_EXISTS_MESSAGE)
         else:        
             table = PrettyTable(table_schema)
-            for row in cursor.fetchmany(5):
+            for row in cursor.fetchall():
                 table.add_row(row)
             print(table)
 
 def update_data(query,*args) -> None:
     with DatabaseContextManager(Config.DATABASE_NAME) as connection:
         cursor = connection.cursor()   
-        cursor.execute(q.QUERY_TO_ENABLE_FOREIGN_KEY)
+        cursor.execute(QueriesConfig.QUERY_TO_ENABLE_FOREIGN_KEY)
         cursor.execute(query,*args)  
 
 def display_employee_data(query,employee_id: int, table_schema: list):
@@ -65,10 +69,12 @@ def display_employee_data(query,employee_id: int, table_schema: list):
         cursor = connection.cursor()
         var = cursor.execute(query,(employee_id,))       
         if var.rowcount == 0:
+            logging.critical(Config.ERROR_MESSAGE)
             raise RowDoesNotExistException(Config.ROW_NOT_EXISTS_MESSAGE)
         else:
             table = PrettyTable(table_schema)
-            table.add_row(cursor.fetchone())
+            row = cursor.fetchone()
+            table.add_row(row)
             print(table)    
 
 def fetch_leaves(query,employee_id) -> int:

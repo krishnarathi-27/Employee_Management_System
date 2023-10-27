@@ -1,11 +1,25 @@
+import logging
 from authentication import Authentication
 from utils.config_class import Config
+from db.queries.queries_config import QueriesConfig
 
-class EmployeeManagementClass:
-    def __init__(self):
-        print(Config.WELCOME_MESSAGE)   
-        Authentication()       
+logging.basicConfig(format='%(asctime)s %(levelname)-8s [%(filename)s:%(lineno)d] %(message)s',
+                    level = logging.DEBUG,
+                    filename = 'logs.txt')
+logger = logging.getLogger('main')
 
-if __name__ == '__main__':
-    Config.load()  
-    obj = EmployeeManagementClass()
+def load_config_files():
+    Config.load()
+    Config.load_print_statements()
+    Config.load_logging_statements()
+    QueriesConfig.loadAdminQueries()
+    QueriesConfig.loadEmployeeQueries() 
+
+if __name__ == '__main__':   
+    load_config_files()
+    logger.info(Config.WELCOME_LOGGING_INFO)
+    print(Config.WELCOME_MESSAGE)   
+    Authentication()  
+
+else:
+    logger.debug(Config.WRONG_FILE_RUNNED)

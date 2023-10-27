@@ -1,0 +1,1 @@
+2023-10-27 15:53:01,910 INFO     [main.py:20] Welcome to Employee Management System
