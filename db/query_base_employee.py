@@ -38,4 +38,4 @@ LIST_TO_DISPLAY_EMPLOYEE_DETAILS = ['Username','Employee_mail','Employee_age','E
 
 LIST_TO_DISPLAY_LEAVES_DETAILS = ['Leave_id','Leave_date','Leave_status']
 
-LIST_TO_DISPLAY_SALARY_DETAILS = ['Salary_id','Salary_to_paid','Salary_month','Salary_details']
+LIST_TO_DISPLAY_SALARY_DETAILS = ['Salary_id','Salary_to_paid','Salary_month','Salary_status']

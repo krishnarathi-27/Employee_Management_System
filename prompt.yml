@@ -1,0 +1,41 @@
+ADMIN_PROMPT : |
+  Enter:
+  - '1' to Add employee
+  - '2' to delete employee
+  - '3' to view employee details
+  - '4' View leaves applied
+  - '5' Update leave status
+  - '6' add salary 
+  - 'q' quit
+
+  Your choice:-
+
+EMPLOYEE_PROMPT : |
+  Enter:
+  - '1' View my detail
+  - '2' Update my detail
+  - '3' Apply for leaves
+  - '4' View my leave status
+  - '5' View my salary status
+  - 'q' quit
+
+  Your choice:-
+
+UPDATE_DETAILS_PROMPT : |
+  Enter:
+  - '1' to update email
+  - '2' to update age
+  - '3' to update phone number
+  - '4' to update gender
+
+  Your choice:-
+
+ATTEMPTS : 3
+
+DATABASE_NAME : 'employee_management.db'
+
+WELCOME_MESSAGE : '------------Welcome to employee management system--------------'
+
+ROW_NOT_EXISTS_MESSAGE : 'Error occured !!! Row does not exist'
+
+WRONG_INPUT_ENTERED_MESSAGE : 'Wrong input entered!! Please try again'

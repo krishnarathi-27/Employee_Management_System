@@ -1,44 +1,37 @@
 import hashlib
+import db.query_base as q
 from pwinput import pwinput
-from DAO import database
-from Input_Validation.input_validation import password_validation
-import DAO.query_base as q
+from db import database
+from utils.config_class import Config
+from utils.input_validation import password_validation
+from .salary import Salary
 
-USER_CHOICE = """
-Enter:
-- '1' to Add employee
-- '2' to delete employee
-- '3' to view employee details
-- '4' View leaves applied
-- '5' Update leave status
-- '6' add salary 
-- 'q' quit
-
-Your choice:- """
 
 class Admin:
     def __init__(self):   
         print("Welcome as Admin")
-    
+            
     def menu_admin(self):
-        user_input = input(USER_CHOICE)
-        while user_input != 'q':
+        user_input = input(Config.ADMIN_PROMPT)
+        while user_input != 'q':           
             match user_input:
                 case '1':
                     Admin.register()
                 case '2':
                     Admin.delete()
                 case '3':
-                    database.display_data(q.QUERY_TO_DISPLAY_EMPLOYEE_DETAILS,q.LIST_TO_DISPLAY_EMPLOYEE_DETAILS)
+                    database.display_data(q.QUERY_TO_DISPLAY_EMPLOYEE_DETAILS,q.LIST_TO_DISPLAY_EMPLOYEE_DETAILS)   
                 case '4':
                     database.display_data(q.QUERY_TO_DISPLAY_LEAVES_DETAILS,q.LIST_TO_DISPLAY_LEAVES_DETAILS)
                 case '5':
                     Admin.update_leave_status()
                 case '6':
-                    Admin.add_salary_status()
+                    salaryObj = Salary()
+                    salaryObj.add_salary()
                 case _:
-                    print("Wrong input entered!! Please try again")
-            user_input = input(USER_CHOICE)
+                    print(Config.WRONG_INPUT_ENTERED_MESSAGE)
+            
+            user_input = input(Config.ADMIN_PROMPT)
 
     @staticmethod
     def register() -> None:
@@ -72,8 +65,4 @@ class Admin:
         status = input("Update status to:- cancel/approved/rejected:- ")
         database.update_data(q.QUERY_TO_UPDATE_LEAVES_STATUS,(status,leave_id,))
 
-    @staticmethod
-    def add_salary_status() -> None:
-        employee_id = int(input("Enter employee id to grant salary:- "))
-        leaves = database.calculate_leaves(q.QUERY_TO_CALCULATE_LEAVES,employee_id)
-        print(leaves)
+        

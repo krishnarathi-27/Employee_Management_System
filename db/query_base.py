@@ -75,7 +75,7 @@ QUERY_TO_ENABLE_FOREIGN_KEY = '''PRAGMA foreign_keys = 1
 
 QUERY_TO_DISPLAY_EMPLOYEE_DETAILS = '''SELECT authentication.employee_id, username, employee_mail, employee_age, employee_phone, employee_gender
                                        FROM authentication
-                                       RIGHT JOIN employee_details ON authentication.employee_id = employee_details.employee_id
+                                       INNER JOIN employee_details ON authentication.employee_id = employee_details.employee_id
                                     '''
 
 QUERY_TO_DISPLAY_LEAVES_DETAILS = '''SELECT * FROM leaves_table'''
@@ -85,13 +85,30 @@ QUERY_TO_UPDATE_LEAVES_STATUS = '''UPDATE leaves_table
                                    WHERE leaves_id = ?
                                 '''
 
-QUERY_TO_FETCH_CONFIG_DATA = '''SELECT * FROM config_table
+QUERY_TO_FETCH_CONFIG_DATA = '''SELECT config_value 
+                                FROM config_table
+                                WHERE config_name = ?
                              '''
 
 QUERY_TO_CALCULATE_LEAVES = '''SELECT * FROM leaves_table 
                                WHERE employee_id = ? AND 
                                leave_status = 'approved'
                             '''
+
+QUERY_TO_ADD_SALARY = ''' INSERT INTO salary_table
+                          (salary_to_paid, salary_month, salary_status, employee_id)
+                          VALUES(?,?,?,?)
+                      '''
+
+QUERY_TO_CHECK_IF_DEFAULT_PASWORD = '''SELECT is_changed
+                                     FROM authentication
+                                     WHERE username = ?
+                                  '''
+
+QUERY_TO_CHANGE_DEFAULT_PASWORD = '''UPDATE authentication
+                                     SET password = ?,is_changed = 1
+                                     WHERE username = ?
+                                  '''
 
 LIST_TO_DISPLAY_EMPLOYEE_DETAILS = ['Employee_id','Username','Employee_mail','Employee_age','Employee_phone','Employee_gender']
 
