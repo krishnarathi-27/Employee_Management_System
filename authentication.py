@@ -11,7 +11,7 @@ logger = logging.getLogger('authentication')
 
 class Authentication:
     
-    def __init__(self):      
+    def __init__(self):  
         return_value = self.login()
         if return_value == None:
             exit()
