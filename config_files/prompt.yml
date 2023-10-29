@@ -6,6 +6,7 @@ ADMIN_PROMPT : |
   - '4' View leaves applied
   - '5' Update leave status
   - '6' add salary 
+  - '7' view salary table
   - 'q' quit
 
   Your choice:-
@@ -29,11 +30,3 @@ UPDATE_DETAILS_PROMPT : |
   - '4' to update gender
 
   Your choice:-
-
-ATTEMPTS : 3
-
-PAID_LEAVES : 2
-
-BASE_SALARY : 20000
-
-DATABASE_NAME : 'employee_management.db'

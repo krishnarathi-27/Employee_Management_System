@@ -1,26 +1,13 @@
 import yaml
-FPATH = 'prompt.yml'
-FPATH_PRINT_STATEMENTS = 'print_statements.yml'
-FPATH_LOGGING_STATEMENTS = 'logging_statements.yml'
+FPATH_PRINT_STATEMENTS = 'config_files\\print_statements.yml'
 
-class Config:
+
+class PrintConfig:
     """
     Maintains all the config variables
     """
     @classmethod
     def load(cls):
-        with open(FPATH, 'r') as f:
-            data = yaml.safe_load(f)
-            cls.ADMIN_PROMPT = data['ADMIN_PROMPT']
-            cls.EMPLOYEE_PROMPT = data['EMPLOYEE_PROMPT']
-            cls.UPDATE_DETAILS_PROMPT = data['UPDATE_DETAILS_PROMPT']
-            cls.ATTEMPT = data['ATTEMPTS']
-            cls.DATABASE_NAME = data['DATABASE_NAME']
-            cls.BASE_SALARY = data['BASE_SALARY']
-            cls.PAID_LEAVES = data['PAID_LEAVES']
-
-    @classmethod
-    def load_print_statements(cls):
         with open(FPATH_PRINT_STATEMENTS,'r') as f:
             data = yaml.safe_load(f)           
             cls.WELCOME_MESSAGE = data['WELCOME_MESSAGE']
@@ -45,15 +32,3 @@ class Config:
             cls.CONFIRM_PASSWORD = data['CONFIRM_PASSWORD'] 
             cls.PRINT_LOGIN = data['PRINT_LOGIN']
             cls.LOGIN_FAILED = data['LOGIN_FAILED']
-            
-    @classmethod
-    def load_logging_statements(cls):
-        with open(FPATH_LOGGING_STATEMENTS,'r') as f:
-            data = yaml.safe_load(f)
-            cls.WELCOME_LOGGING_INFO = data['WELCOME_LOGGING_INFO']
-            cls.WRONG_FILE_RUNNED = data['WRONG_FILE_RUNNED']
-            cls.REGISTERED_SUCCESSFULLY = data['REGISTERED_SUCCESSFULLY']
-            cls.DELETED_SUCCESSFULLY = data['DELETED_SUCCESSFULLY']
-            cls.UPDATED_SUCCESSFULLY = data['UPDATED_SUCCESSFULLY']
-            cls.LOGGED_IN = data['LOGGED_IN']
-            cls.ERROR_MESSAGE = data['ERROR_MESSAGE']

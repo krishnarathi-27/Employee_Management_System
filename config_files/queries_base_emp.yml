@@ -1,12 +1,21 @@
 QUERY_TO_ADD_IN_LEAVE_TABLE : |
   INSERT INTO leaves_table
   (leaves_date,employee_id)
-    values(?,?)
+  values(?,?)
 
-QUERY_TO_DISPLAY_LOGGEDIN_EMPLOYEE_DETAILS : SELECT * FROM employee_details WHERE employee_id = ?
+QUERY_TO_DISPLAY_LOGGEDIN_EMPLOYEE_DETAILS : |
+  SELECT authentication.employee_id, authentication.username, employee_details.employee_mail, employee_details.employee_age,
+  employee_details.employee_phone, employee_details.employee_gender 
+  FROM authentication 
+  INNER JOIN employee_details
+  ON authentication.employee_id = employee_details.employee_id AND authentication.employee_id = ?
 
 QUERY_TO_DISPLAY_SELF_LEAVES_STATUS : |
   SELECT leaves_id,leaves_date,leave_status FROM leaves_table WHERE employee_id = ?
+
+QUERY_TO_FETCH_LEAVES_DATE_FOR_EMPLOYEE : |
+  SELECT leaves_date FROM leaves_table 
+  WHERE employee_id = ? AND leaves_date = ?
 
 QUERY_TO_DISPLAY_SALARY_STATUS : SELECT * FROM salary_table WHERE employee_id = ?
 
@@ -30,7 +39,7 @@ QUERY_TO_UPDATE_EMP_GENDER : |
   SET employee_gender = ? 
   WHERE employee_id = ?
 
-LIST_TO_DISPLAY_SELFEMPLOYEE_DETAILS : ['Username','Employee_mail','Employee_age','Employee_phone','Employee_gender']
+LIST_TO_DISPLAY_SELFEMPLOYEE_DETAILS : ['Employee_id','Username','Employee_mail','Employee_age','Employee_phone','Employee_gender']
 
 LIST_TO_DISPLAY_SELFLEAVES_DETAILS : ['Leave_id','Leave_date','Leave_status']
 

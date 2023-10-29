@@ -1,0 +1,32 @@
+2023-10-27 15:53:01,910 INFO     [main.py:20] Welcome to Employee Management System
+2023-10-27 17:24:33,957 INFO     [main.py:20] Welcome to Employee Management System
+2023-10-27 17:43:50,614 INFO     [main.py:20] Welcome to Employee Management System
+2023-10-27 17:44:22,348 INFO     [main.py:20] Welcome to Employee Management System
+2023-10-27 17:45:42,546 INFO     [admin.py:55] Registered new user succesfully
+2023-10-27 17:46:11,669 INFO     [main.py:20] Welcome to Employee Management System
+2023-10-27 17:47:23,302 INFO     [main.py:20] Welcome to Employee Management System
+2023-10-27 17:48:03,982 INFO     [employee.py:12] User logged in
+2023-10-27 17:49:06,826 INFO     [main.py:20] Welcome to Employee Management System
+2023-10-27 17:49:44,913 DEBUG    [admin.py:69] Updated successfully
+2023-10-27 17:50:20,801 DEBUG    [admin.py:69] Updated successfully
+2023-10-27 17:50:29,990 INFO     [main.py:20] Welcome to Employee Management System
+2023-10-27 17:50:40,628 INFO     [employee.py:12] User logged in
+2023-10-27 17:51:29,005 INFO     [main.py:20] Welcome to Employee Management System
+2023-10-27 17:51:48,707 DEBUG    [admin.py:69] Updated successfully
+2023-10-27 17:52:00,875 INFO     [main.py:20] Welcome to Employee Management System
+2023-10-27 17:52:06,732 INFO     [employee.py:12] User logged in
+2023-10-27 17:52:27,191 INFO     [main.py:20] Welcome to Employee Management System
+2023-10-27 17:53:13,754 INFO     [main.py:20] Welcome to Employee Management System
+2023-10-27 17:53:21,046 INFO     [employee.py:12] User logged in
+2023-10-27 17:53:30,597 INFO     [main.py:20] Welcome to Employee Management System
+2023-10-27 17:55:04,650 INFO     [main.py:20] Welcome to Employee Management System
+2023-10-27 17:55:11,805 INFO     [employee.py:12] User logged in
+2023-10-27 18:00:19,843 INFO     [main.py:20] Welcome to Employee Management System
+2023-10-29 12:32:13,221 INFO     [main.py:20] Welcome to Employee Management System
+2023-10-29 12:32:23,852 INFO     [employee.py:12] User logged in
+2023-10-29 12:33:28,830 INFO     [main.py:20] Welcome to Employee Management System
+2023-10-29 12:33:38,201 INFO     [employee.py:12] User logged in
+2023-10-29 12:34:05,619 INFO     [main.py:20] Welcome to Employee Management System
+2023-10-29 12:34:23,926 INFO     [main.py:20] Welcome to Employee Management System
+2023-10-29 12:34:30,989 INFO     [employee.py:12] User logged in
+2023-10-29 21:10:46,028 INFO     [main.py:27] Welcome to Employee Management System

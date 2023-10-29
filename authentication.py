@@ -1,10 +1,11 @@
 import hashlib
 import logging
 from pwinput import pwinput
-from utils.config_class import Config
-from db import database 
-from db.queries.queries_config import QueriesConfig
 from admin.admin import Admin
+from config.constants_config import ConstantsConfig
+from config.print_statements import PrintConfig
+from config.queries_admin_config import QueriesAdmin
+from db import database as db
 from emp.employee import Employee
 
 logger = logging.getLogger('authentication')
@@ -22,34 +23,40 @@ class Authentication:
         else:
             objEmployee = Employee(userid)
             objEmployee.menu_employee()  
-        
-    def change_default_password(self):
-        self.default_password = pwinput(prompt=Config.ENTER_DEFAULT_PASSWORD)
-        login_success = database.fetch_user(QueriesConfig.QUERY_TO_VERIFY_LOGIN,self.username,self.default_password)
-        if login_success == None:
-            return False
-        self.new_password = pwinput(prompt=Config.ENTER_NEW_PASSWORD)
-        self.confirm_password = pwinput(prompt=Config.CONFIRM_PASSWORD)
-        if self.new_password != self.confirm_password:
-            return False
-        self.hashed_password = hashlib.sha256(self.new_password.encode()).hexdigest()
-        database.update_data(QueriesConfig.QUERY_TO_CHANGE_DEFAULT_PASWORD,(self.hashed_password,self.username))
-            
-    def login(self):
-        print(Config.PRINT_LOGIN)
-        while Config.ATTEMPT:
-            self.username = input(Config.PRINT_USERNAME)
-            record = database.fetch_data(QueriesConfig.QUERY_TO_CHECK_IF_DEFAULT_PASWORD,self.username)
-            if record == 0:
-                check = self.change_default_password()      
-                if check == False:
-                    Config.ATTEMPT-=1
-                    continue
-            self.password = pwinput(prompt=Config.PRINT_PASSWORD)        
-            login_success = database.fetch_user(QueriesConfig.QUERY_TO_VERIFY_LOGIN,self.username,self.password)
-            if login_success == None:
-                Config.ATTEMPT-=1
-                print(f"{Config.LOGIN_FAILED} {Config.ATTEMPT}/3")
+  
+    def change_default_password(self):        
+        while True:
+            self.new_password = pwinput(prompt=PrintConfig.ENTER_NEW_PASSWORD)
+            self.confirm_password = pwinput(prompt=PrintConfig.CONFIRM_PASSWORD)
+            if self.new_password != self.confirm_password:
+                print("Passwords does not match")
+                continue
             else:
-                return login_success 
-            
+                self.hashed_password = hashlib.sha256(self.new_password.encode()).hexdigest()
+                db.update_data(QueriesAdmin.QUERY_TO_CHANGE_DEFAULT_PASWORD,(self.hashed_password,self.username))
+                break
+  
+    def login(self):
+        print(PrintConfig.PRINT_LOGIN)
+        attempts = ConstantsConfig.ATTEMPT
+
+        while attempts:
+            self.username = input(PrintConfig.PRINT_USERNAME)
+            self.password = pwinput(prompt=PrintConfig.PRINT_PASSWORD)
+            self.hashed_password = hashlib.sha256(self.password.encode()).hexdigest()
+            user_data = db.fetch_data(QueriesAdmin.QUERY_TO_VERIFY_LOGIN,(self.username,))
+            if not any(user_data):
+                print(f"{PrintConfig.LOGIN_FAILED} {attempts}/3")
+                attempts=attempts-1               
+            elif user_data[0][2] == self.hashed_password:
+                if user_data[0][4] == 0:
+                    print("You need to change your default password")
+                    self.change_default_password()
+                    break
+                else:
+                    break
+
+        if attempts <= 0:
+            return None
+        else:
+            return user_data[0][3],user_data[0][0] 
