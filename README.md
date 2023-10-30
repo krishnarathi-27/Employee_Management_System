@@ -9,6 +9,7 @@ Functionalities of Admin
 3.	Remove employee: - Admin can remove the details of the particular employee from their database.
 4.	View leaves applied: - Admin can view the leaves applied by the employee in the database, can update status of leave to granted/rejected/cancelled.
 5.	Salary section: - Admin can update the salary status, Calculate the total salary to be paid to any employee after the deduction of leaves taken (granted leaves will not be deduced from the salary).
+
 Functionalities of Employee
 1.	Change default password at first time of login.
 2.	View own details.
