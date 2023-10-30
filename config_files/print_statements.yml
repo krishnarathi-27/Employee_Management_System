@@ -41,3 +41,9 @@ CONFIRM_PASSWORD : 'Enter new password to confirm:- '
 PRINT_LOGIN : "Login into the system. You have total of 3 attempts"
 
 LOGIN_FAILED : Login failed!! Try again. Total attempts left
+
+ENTER_DATE : "Enter date in YYYY-mm-dd format:- "
+
+WRONG_DATE_FORMAT : "Wrong date format entered"
+
+LEAVE_ERROR : "Can't apply leaves for same date"

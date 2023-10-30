@@ -32,3 +32,6 @@ class PrintConfig:
             cls.CONFIRM_PASSWORD = data['CONFIRM_PASSWORD'] 
             cls.PRINT_LOGIN = data['PRINT_LOGIN']
             cls.LOGIN_FAILED = data['LOGIN_FAILED']
+            cls.ENTER_DATE = data['ENTER_DATE']
+            cls.WRONG_DATE_FORMAT = data['WRONG_DATE_FORMAT']
+            cls.LEAVE_ERROR = data['LEAVE_ERROR']

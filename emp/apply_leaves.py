@@ -1,4 +1,5 @@
 from datetime import datetime
+from config.print_statements import PrintConfig
 from config.queries_emp_config import QueriesEmp
 from db import database as db
 
@@ -14,15 +15,15 @@ class ApplyLeaves:
 
     def fetch_leaves_date(self): 
         while True:      
-            self.leave_date = input("Enter date in YYYY-mm-dd format:- ")
+            self.leave_date = input(PrintConfig.ENTER_DATE)
             try:
                 bool(datetime.strptime(self.leave_date, self.format))
                 break
             except ValueError:
-                print("Wrong date format entered")                       
+                print(PrintConfig.WRONG_DATE_FORMAT)                       
         leaves_applied = db.fetch_data(QueriesEmp.QUERY_TO_FETCH_LEAVES_DATE_FOR_EMPLOYEE,(self.user_id,self.leave_date))
         if len(leaves_applied) == 0:
             self.apply_leaves()
         else:
-            print("Can't apply leaves for same date")
+            print(PrintConfig.LEAVE_ERROR)
         

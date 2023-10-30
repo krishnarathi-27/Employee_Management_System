@@ -30,3 +30,5 @@
 2023-10-29 12:34:23,926 INFO     [main.py:20] Welcome to Employee Management System
 2023-10-29 12:34:30,989 INFO     [employee.py:12] User logged in
 2023-10-29 21:10:46,028 INFO     [main.py:27] Welcome to Employee Management System
+2023-10-30 09:06:28,797 INFO     [main.py:27] Welcome to Employee Management System
+2023-10-30 09:06:34,756 INFO     [employee.py:15] User logged in

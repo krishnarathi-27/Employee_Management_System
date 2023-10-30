@@ -39,19 +39,19 @@ class Employee:
         self.update_input = input(PromptsConfig.UPDATE_DETAILS_PROMPT)
         match self.update_input:
             case '1':
-                email_to_update = input("Enter the new mail:- ")
+                email_to_update = input(PrintConfig.ENTER_MAIL)
                 db.update_data(QueriesEmp.QUERY_TO_UPDATE_EMP_MAIL,(email_to_update,self.userid,))
                 logging.debug(LoggingConfig.UPDATED_SUCCESSFULLY)
             case '2':
-                age_to_update = input("Enter the new age:- ")
+                age_to_update = input(PrintConfig.ENTER_AGE)
                 db.update_data(QueriesEmp.QUERY_TO_UPDATE_EMP_AGE,(age_to_update,self.userid,))
                 logging.debug(LoggingConfig.UPDATED_SUCCESSFULLY)
             case '3':
-                phone_to_update = input("Enter the new phone number:- ")
+                phone_to_update = input(PrintConfig.ENTER_PHONE_NO)
                 db.update_data(QueriesEmp.QUERY_TO_UPDATE_EMP_PHONE,(phone_to_update,self.userid,))
                 logging.debug(LoggingConfig.UPDATED_SUCCESSFULLY)
             case '4':
-                gender_to_update = input("Enter the new gender:- ")
+                gender_to_update = input(PrintConfig.ENTER_GENDER)
                 db.update_data(QueriesEmp.QUERY_TO_UPDATE_EMP_GENDER,(gender_to_update,self.userid,))
                 logging.debug(LoggingConfig.UPDATED_SUCCESSFULLY)
             case _:
