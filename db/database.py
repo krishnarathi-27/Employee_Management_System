@@ -58,19 +58,6 @@ def update_data(query,*args) -> None:
         cursor.execute(QueriesAdmin.QUERY_TO_ENABLE_FOREIGN_KEY)
         cursor.execute(query,*args)  
 
-# def display_employee_data(query,employee_id: int, table_schema: list):
-#     with DatabaseContextManager(ConstantsConfig.DATABASE_NAME) as connection:
-#         cursor = connection.cursor()
-#         var = cursor.execute(query,(employee_id,))       
-#         if var.rowcount == 0:
-#             logging.critical(LoggingConfig.ERROR_MESSAGE)
-#             raise RowDoesNotExistException(PrintConfig.ROW_NOT_EXISTS_MESSAGE)
-#         else:
-#             table = PrettyTable(table_schema)
-#             row = cursor.fetchone()
-#             table.add_row(row)
-#             print(table)    
-
 def fetch_data(query,tp) -> int:
     with DatabaseContextManager(ConstantsConfig.DATABASE_NAME) as connection:
         cursor = connection.cursor()
