@@ -1,0 +1,87 @@
+---
+ADMIN_PROMPT : |
+  Enter:
+  - 1 Add employee
+  - 2 Delete employee
+  - 3 View employees
+  - 4 View leaves applied
+  - 5 Update leaves status
+  - 6 Add salary 
+  - 7 View salary table
+  - 8 Logout
+
+  Your choice:-
+
+EMPLOYEE_PROMPT : |
+  Enter:
+  - 1 View my detail
+  - 2 Update my detail
+  - 3 Apply leaves
+  - 4 View my leaves status
+  - 5 View my salary status
+  - 6 Logout
+
+  Your choice:-
+
+UPDATE_DETAILS_PROMPT : |
+  Enter:
+  - 1 Email
+  - 2 Age
+  - 3 Phone number
+  - 4 Gender
+  - 5 Back to main menu
+
+  Your choice:-
+
+LEAVE_STATUS_PROMPT : |
+  Enter :
+  - 1 Approved
+  - 2 Rejected
+  - 3 Cancelled
+  
+INVALID_INPUT : Invalid input entered
+WELCOME_MESSAGE : ------------Welcome to employee management system--------------
+ROW_NOT_EXISTS_MESSAGE : Error occured !!! Row does not exist
+WRONG_INPUT_ENTERED_MESSAGE : Wrong input entered!! Please try again
+ENTER_ROLE : Enter the role of the user:-
+ENTER_GENDER : Enter gender of employee:- 
+ENTER_PHONE_NO : Enter employee phone number:- 
+ENTER_MAIL : Enter employee mail id:- 
+ENTER_AGE : Enter age of employee:- 
+WELCOME_ADMIN_MESSAGE : Welcome Admin
+ENTER_EMP_ID : Enter the employee id :- 
+ENTER_LEAVE_ID : Enter leave id to update leave status:- 
+ENTER_LEAVE_STATUS : Update status to:- cancel/approved/rejected:- 
+ENTER_SALARY_MONTH : Enter month of salary from 01 to 12
+ENTER_SALARY_STATUS : Enter status of salary:- 
+ENTER_DATE : Enter date in YYYY-mm-dd format:- 
+WRONG_DATE_FORMAT : Wrong date format entered
+LEAVE_ERROR : Cant apply leaves for same date
+USER_ADDED_SUCCESS : User added succesfully
+
+#authentication file
+NO_DATA_EXISTS : Data does not exists
+EXIT_SYSTEM_PROMPT : Do you want to exit from system y/n :- 
+INVALID_LOGIN : Invalid login detected attempts left {}
+INPUT_DEFAULT_PASSWORD : Enter your default password:- 
+INPUT_NEW_PASSWORD : Enter new password:- 
+INPUT_CONFIRM_PASSWORD : Confirm new password 
+PASSWORD_NOT_MATCH : Passwords do not match. Please try again
+DEFAULT_PASSWORD_UPDATED : Default Password updated successfully!! Login with new credentials.
+ENTER_USERNAME : Enter username :- 
+ENTER_PASSWORD : Enter your password :- 
+ATTEMPTS_MESSAGE : Enter your login credentials. You have 3 total attempts
+ATTEMPTS_EXHAUSTED : Login attempts exhausted
+STRONG_PASSWORD : |
+  You must enter a strong password
+  - Must be of minimum 7 characters, atleast one lowercase letter,one uppercase letter, one number, one special character
+LOGIN_AGAIN : Do you want to login again ? :- Y/N:- 
+WAIT_FOR_LOGIN : Your attempts are exhausted you will have to wait for some time
+
+#exception message
+DB_ERROR_MESSAGE : Standby--We will get back to you soon, something unexpected occured at the backend side
+DB_INTEGRITY_ERROR : Data entered already exists in database, Enter unique data.
+DB_GENERAL_ERROR : Something bad occured at backend. Please wait while we resolve the issue
+INVALID_INPUT_ERROR : Bad input entered.
+GENERAL_EXCEPTION_MSG : We are facing some issue in the code. Wait while we resolve it
+...

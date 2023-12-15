@@ -1,0 +1,18 @@
+---
+WELCOME_LOGGING_INFO  : Welcome to Employee Management System
+WRONG_FILE_RUNNED : "Wrong file run. Run main.py for running the program."
+REGISTERED_SUCCESSFULLY : "Registered new user succesfully"
+DELETED_SUCCESSFULLY : "Deleted user successfully"
+UPDATED_SUCCESSFULLY : "Updated successfully"
+LOGGED_IN : "User logged in"
+ERROR_MESSAGE: "Unexpected Error occured"
+
+#auth logs
+PROVIDE_ROLE_BASED_ACCESS : Providing role based access to authenticated user
+LOG_INVALID_LOGIN : Invalid login occured
+LOG_DEFAULT_PASSWORD : User changed default password
+
+#admin
+LOG_CREATE_NEW_USER : Create new user
+LOG_ADMIN_LOGGED_IN : Admin logged in the system
+...
