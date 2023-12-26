@@ -32,12 +32,16 @@ class SalaryControllers:
     def save_salary_status(self,employee_id,salary_month):
         salary_id =  "SID" + shortuuid.ShortUUID().random(length=4)
         data = self.db_object.fetch_data(Queries.QUERY_TO_CALCULATE_LEAVES,(employee_id,))
+        
+        if not data:
+            return False
+        else:
+            dates = [date[0].split('-')[1] for date in data]
+            count_leaves = dates.count(salary_month)
+            base_salary_day = AppConfig.BASE_SALARY/30
+            total_leaves = abs(count_leaves-AppConfig.PAID_LEAVES)
+            total_leaves_amount = total_leaves * base_salary_day
+            salary = AppConfig.BASE_SALARY - total_leaves_amount
 
-        dates = [date[0].split('-')[1] for date in data]
-        count_leaves = dates.count(salary_month)
-        base_salary_day = AppConfig.BASE_SALARY/30
-        total_leaves = abs(count_leaves-AppConfig.PAID_LEAVES)
-        total_leaves_amount = total_leaves * base_salary_day
-        salary = AppConfig.BASE_SALARY - total_leaves_amount
-
-        self.db_object.save_data(Queries.QUERY_TO_ADD_SALARY,(salary_id,salary,salary_month,'approved',employee_id,))
+            self.db_object.save_data(Queries.QUERY_TO_ADD_SALARY,(salary_id,salary,salary_month,'approved',employee_id,))
+            return True

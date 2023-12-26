@@ -7,20 +7,6 @@ from utils.validations import InputValidations
 from config.logs.logging_config import LoggingConfig
 from controllers.salary_controllers import SalaryControllers
 
-class Months(Enum):
-    JAN = '01'
-    FEB = '02'
-    MAR = '03'
-    APR = '04'
-    MAY = '05'
-    JUN = '06'
-    JULY = '07'
-    AUG = '08'
-    SEP = '09'
-    OCT = '10'
-    NOV = '11'
-    DEC = '12'
-
 class SalaryViews:
     
     def __init__(self,db_object) -> None:
@@ -50,4 +36,8 @@ class SalaryViews:
             print(PromptsConfig.NO_DATA_EXISTS)
         else:
             salary_month = input(PromptsConfig.ENTER_SALARY_MONTH)
-            self.obj_salary_controller.save_salary_status(employee_id,salary_month)
+            if not self.obj_salary_controller.save_salary_status(employee_id,salary_month):
+                print(PromptsConfig.NO_DATA_EXISTS)
+            else:
+                print("Salary added successfully")
+                

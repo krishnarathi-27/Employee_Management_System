@@ -128,6 +128,6 @@ class InputValidations:
             try:
                 datetime.strptime(purchased_date, AppConfig.DATE_FORMAT)
                 return purchased_date
-            except:
+            except Exception:
                 print(PromptsConfig.INVALID_INPUT)
                 logger.info("Invalid date entered")

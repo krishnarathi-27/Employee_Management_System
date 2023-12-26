@@ -75,7 +75,7 @@ class AdminViews(LeavesViews,SalaryViews):
                 break
 
     @error_handler
-    def admin_menu(self):            
+    def admin_menu(self):  
         user_input = input(PromptsConfig.ADMIN_PROMPT)
         match user_input:
             case '1':
@@ -88,11 +88,9 @@ class AdminViews(LeavesViews,SalaryViews):
                 self.display_leaves()
             case '5':
                 self.update_leaves_status()
-                pass
             case '6':
                 self.display_user()
                 self.add_salary()
-                pass
             case '7':
                 self.display_salary()
             case '8':
@@ -101,4 +99,4 @@ class AdminViews(LeavesViews,SalaryViews):
                 print(PromptsConfig.INVALID_INPUT)
 
         return False
-                
+                 

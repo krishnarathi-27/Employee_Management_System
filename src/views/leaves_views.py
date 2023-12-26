@@ -54,7 +54,6 @@ class LeavesViews:
     def display_leaves_status(self, user_id) -> None:
 
         data = self.obj_leaves_controller.view_leaves_employee(user_id)
-        print(data)
         if not data:
             print(PromptsConfig.NO_DATA_EXISTS)
         else:
