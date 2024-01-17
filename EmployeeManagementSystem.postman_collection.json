@@ -1,0 +1,191 @@
+{
+	"info": {
+		"_postman_id": "1616279c-9ac1-4e46-86ee-435efb8bb499",
+		"name": "EmployeeManagementSystem",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "32184703"
+	},
+	"item": [
+		{
+			"name": "authentication",
+			"item": [
+				{
+					"name": "login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"krishna\",\r\n    \"password\": \"hidwed\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{url}}/login"
+					},
+					"response": []
+				},
+				{
+					"name": "/logout",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": "/logout"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "/user",
+			"item": [
+				{
+					"name": "/user",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				},
+				{
+					"name": "/user/{id}",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				},
+				{
+					"name": "/user/{id}",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": "{{url}}/user/EMP8rke"
+					},
+					"response": []
+				},
+				{
+					"name": "/user",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{access_token}}"
+							}
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTcwNTA1MTcyMywianRpIjoiMTM3ZTQ2Y2MtMTczMC00M2Q5LTkyYmEtNDRkNzlkNTk1NDQ5IiwidHlwZSI6ImFjY2VzcyIsInN1YiI6Im5hbWFuIiwibmJmIjoxNzA1MDUxNzIzLCJjc3JmIjoiOWI5MzA5OGQtNTZhZS00MzgxLThhOWYtYzE1NzcyZGU4MDNlIiwiZXhwIjoxNzA1MDUyNjIzLCJyb2xlIjoiZW1wbG95ZWUifQ.BI8AcRzqFey-nKF5m-H9-zbsVOcwsBMse5x6ljVK1N4",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\": \"agrima21\",\r\n    \"password\": \"Agrima@123\",\r\n    \"role\": \"employee\",\r\n    \"age\": 24,\r\n    \"mail\": \"krishna2702rathi@gmail.com\",\r\n    \"gender\": \"female\",\r\n    \"phone\": 9873678387\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{url}}/user"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "/salary",
+			"item": [
+				{
+					"name": "/salary",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				},
+				{
+					"name": "/salary",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{access_token}}"
+							}
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"employee_id\" : \"EMP4x8M\",\r\n    \"salary_month\" : \"12\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{url}}/salary"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "/leave",
+			"item": [
+				{
+					"name": "/leave",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{access_token}}"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"url": "{{url}}/leave"
+					},
+					"response": []
+				},
+				{
+					"name": "/leave/{user_id}",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				},
+				{
+					"name": "/leave/{leave_id}",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"url": "{{url}}/leave/LID9285"
+					},
+					"response": []
+				},
+				{
+					"name": "/leave",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{access_token}}"
+							}
+						},
+						"method": "POST",
+						"header": [],
+						"url": "{{url}}/leave"
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
