@@ -71,11 +71,7 @@ class AuthControllers:
             is_changed = user_data[0][3]
             user_id = user_data[0][0]
             hashed_password = hashlib.sha256(input_password.encode()).hexdigest()
-            if is_changed == "false":
-                logger.info("User logged in first time")
-                return self.valid_first_login(username, hashed_password, password)
-            else:
-                if hashed_password == password:
-                    return role
+            if hashed_password == password:
+                return (role, user_id)
 
-        return None
+        return ()

@@ -1,19 +1,24 @@
 import sqlite3
 import shortuuid
-from fastapi import APIRouter, HTTPException, Body, Path
+from fastapi import APIRouter, HTTPException, Body, Path, Depends
 from starlette import status
+from fastapi.security import OAuth2PasswordBearer
+from typing import Annotated
+from utils.rbac import role_required
 from controllers.admin_controllers import AdminControllers
 from controllers.employee_controllers import EmployeeControllers
-from schemas.leave_schema import LeaveSchema
 
 admin_obj = AdminControllers()
 emp_obj = EmployeeControllers()
 
+oauth2_bearer = OAuth2PasswordBearer(tokenUrl='/login')
+token_dependency = Annotated[dict, Depends(oauth2_bearer)]
 
 router = APIRouter()
 
 @router.get("/users",status_code=status.HTTP_200_OK)
-async def get_leaves():
+@role_required(["admin"])
+def get_users(token : token_dependency):
     try:
         data = admin_obj.view_user()
         if data:
@@ -25,7 +30,8 @@ async def get_leaves():
         raise HTTPException(500, detail="Server not responding")
     
 @router.get("/user/{user_id}",status_code=status.HTTP_200_OK)
-async def get_user_by_id(user_id):
+@role_required(["admin","employee"])
+def get_user_by_id(user_id):
     try:
         data  = emp_obj.view_details(user_id)
         if data:
@@ -36,9 +42,9 @@ async def get_user_by_id(user_id):
     except sqlite3.Error:
         raise HTTPException(500, detail="Server not responding")
     
-@router.post("/leaves",status_code=status.HTTP_201_CREATED)
-async def post_leaves(user_data = Body()):
-    leave_id = "LID" + shortuuid.ShortUUID().random(length=4)
+@router.post("/users",status_code=status.HTTP_201_CREATED)
+@role_required(["employee"])
+def post_leaves(user_data = Body()):
     try:  
         employee_id = "EMP" + shortuuid.ShortUUID().random(length=4)
         result = admin_obj.create_new_user(employee_id,user_data['role'],user_data['username'],user_data['password'],user_data['age'],
@@ -53,5 +59,4 @@ async def post_leaves(user_data = Body()):
         raise HTTPException(409, detail="Resource already exists")
     except sqlite3.Error:
         raise HTTPException(500, detail="Server not responding")
-
 
