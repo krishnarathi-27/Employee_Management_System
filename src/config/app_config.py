@@ -8,6 +8,7 @@ class AppConfig:
     PAID_LEAVES = 1
     BASE_SALARY = 30000
     DATABASE_LOCATION = "employee_management.db"
+    TEST_DB_PATH = "tests/test_db.db"
     LOG_FILE_LOCATION = 'logs.txt'
 
     # roles of user

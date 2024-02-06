@@ -21,6 +21,11 @@ app = FastAPI(
     openapi_url="/api/openapi.json",
     default_response_class=UJSONResponse,
 )
+
+@app.get("/healthy")
+def healthy():
+    return {'status':'health'}
+
 def get_current_username(credentials: HTTPBasicCredentials = Depends(security)) -> str:
     correct_username = secrets.compare_digest(credentials.username, "krishna")
     correct_password = secrets.compare_digest(credentials.password, "Krishna@13")

@@ -1,0 +1,10 @@
+06-02-2024 13:22:51 DEBUG    [proactor_events.py:633] Using proactor: IocpProactor
+06-02-2024 13:22:51 INFO     [_client.py:1027] HTTP Request: POST http://testserver/leaves "HTTP/1.1 201 Created"
+06-02-2024 13:22:51 DEBUG    [proactor_events.py:633] Using proactor: IocpProactor
+06-02-2024 13:22:51 INFO     [_client.py:1027] HTTP Request: GET http://testserver/users "HTTP/1.1 200 OK"
+06-02-2024 13:22:51 DEBUG    [proactor_events.py:633] Using proactor: IocpProactor
+06-02-2024 13:22:51 INFO     [_client.py:1027] HTTP Request: GET http://testserver/user/EMPkris "HTTP/1.1 200 OK"
+06-02-2024 13:22:51 DEBUG    [proactor_events.py:633] Using proactor: IocpProactor
+06-02-2024 13:22:51 INFO     [_client.py:1027] HTTP Request: GET http://testserver/user/EMPkrde "HTTP/1.1 404 Not Found"
+06-02-2024 13:22:51 DEBUG    [proactor_events.py:633] Using proactor: IocpProactor
+06-02-2024 13:22:51 INFO     [_client.py:1027] HTTP Request: POST http://testserver/users "HTTP/1.1 201 Created"

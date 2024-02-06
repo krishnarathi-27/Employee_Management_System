@@ -1,11 +1,11 @@
 import sqlite3
 import shortuuid
-from fastapi import APIRouter, HTTPException, Path
+from fastapi import APIRouter, HTTPException
 from starlette import status
 from controllers.leaves_controllers import LeavesControllers
 from schemas.leave_schema import CreateLeaveSchema, UpdateLeaveSchema
 from utils.rbac import role_required
-from routers.user_routers import oauth2_bearer, token_dependency
+from routers.user_routers import token_dependency
 
 leave_obj = LeavesControllers()
 
@@ -13,7 +13,7 @@ router = APIRouter()
 
 @router.get("/leaves",status_code=status.HTTP_200_OK)
 @role_required(["admin"])
-def get_leaves():
+def get_leaves(token : token_dependency):
     try:
         data = leave_obj.view_leaves()
         if data:
@@ -26,7 +26,7 @@ def get_leaves():
     
 @router.get("/leave/{user_id}",status_code=status.HTTP_200_OK)
 @role_required(["admin","employee"])
-def get_leaves_by_id(user_id):
+def get_leaves_by_id(token : token_dependency,user_id):
     try:
         data = leave_obj.view_leaves_employee(user_id)
         if data:
@@ -39,7 +39,7 @@ def get_leaves_by_id(user_id):
     
 @router.post("/leaves",status_code=status.HTTP_201_CREATED)
 @role_required(["employee"])
-def post_leaves(leave_data : CreateLeaveSchema):
+def post_leaves(token : token_dependency,leave_data : CreateLeaveSchema):
     leave_id = "LID" + shortuuid.ShortUUID().random(length=4)
     try:  
         result = leave_obj.save_leaves(leave_id,leave_data.employee_id,leave_data.leaves_date)
@@ -56,7 +56,7 @@ def post_leaves(leave_data : CreateLeaveSchema):
 
 @router.patch("/leave/{leave_id}",status_code=status.HTTP_200_OK)
 @role_required(["admin"])
-def update_leaves(leave_id ,leave_data : UpdateLeaveSchema):  
+def update_leaves(token : token_dependency,leave_id ,leave_data : UpdateLeaveSchema):  
     try:
         leave_obj.update_leaves(leave_data.leaves_status,leave_id)
         return {"message" :"Leaves updated successfully"}

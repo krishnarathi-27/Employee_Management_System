@@ -29,7 +29,8 @@ async def login_user(request_data: LoginSchema):
         token = create_access_token(result[0], result[1], timedelta(minutes=15))
         return {'token' : token}
     
-    except sqlite3.Error:
+    except sqlite3.Error as Error:
+        print(Error)
         raise HTTPException(500, detail="Server not responding")
     
 def create_access_token(role: str, user_id: str, expires_delta: timedelta):

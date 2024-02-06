@@ -12,7 +12,7 @@ router = APIRouter()
 
 @router.get("/salary",status_code=status.HTTP_200_OK)
 @role_required(["admin"])
-def get_salary():
+def get_salary(token : token_dependency):
     try:
         data = salary_obj.view_salary()
         if data:
@@ -25,7 +25,7 @@ def get_salary():
     
 @router.get("/salary/{user_id}",status_code=status.HTTP_200_OK)
 @role_required(["admin","employee"])
-def get_salary_by_user_id(user_id):
+def get_salary_by_user_id(token : token_dependency,user_id):
     try:
         data = salary_obj.view_self_salary(user_id)
         if data:
@@ -38,7 +38,7 @@ def get_salary_by_user_id(user_id):
     
 @router.post("/salary",status_code=status.HTTP_201_CREATED)
 @role_required(["admin"])
-def post_salary(salary_data = Body()):
+def post_salary(token : token_dependency, salary_data = Body()):
     salary_id = "LID" + shortuuid.ShortUUID().random(length=4)
     try:  
         result = salary_obj.save_salary_status(salary_data['employee_id'],salary_data['salary_month'])
@@ -52,4 +52,3 @@ def post_salary(salary_data = Body()):
         raise HTTPException(409, detail="Resource already exists")
     except sqlite3.Error:
         raise HTTPException(500, detail="Server not responding")
-

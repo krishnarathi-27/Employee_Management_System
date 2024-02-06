@@ -31,20 +31,20 @@ def get_users(token : token_dependency):
     
 @router.get("/user/{user_id}",status_code=status.HTTP_200_OK)
 @role_required(["admin","employee"])
-def get_user_by_id(user_id):
+def get_user_by_id(token : token_dependency,user_id):
     try:
         data  = emp_obj.view_details(user_id)
         if data:
             return data
         else:
-            raise HTTPException(404, "User data not found")
+            raise HTTPException(404, detail="User data not found")
         
     except sqlite3.Error:
         raise HTTPException(500, detail="Server not responding")
     
 @router.post("/users",status_code=status.HTTP_201_CREATED)
-@role_required(["employee"])
-def post_leaves(user_data = Body()):
+@role_required(["admin"])
+def post_leaves(token : token_dependency,user_data = Body()):
     try:  
         employee_id = "EMP" + shortuuid.ShortUUID().random(length=4)
         result = admin_obj.create_new_user(employee_id,user_data['role'],user_data['username'],user_data['password'],user_data['age'],
@@ -56,6 +56,7 @@ def post_leaves(user_data = Body()):
         
         raise HTTPException(500, detail="Server not responding")
     except sqlite3.IntegrityError:
+        print("hi")
         raise HTTPException(409, detail="Resource already exists")
     except sqlite3.Error:
         raise HTTPException(500, detail="Server not responding")

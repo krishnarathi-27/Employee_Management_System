@@ -17,14 +17,11 @@ def role_required(roles_list):
             try:
                 token = kwargs.get('token')
                 payload = jwt.decode(token, SECRET_KEY, algorithms=[ALGORITHM])
-                print(payload)
                 role: str = payload.get('sub')
                 user_id: int = payload.get('id')
-                print(role, user_id)
                 if role is None or user_id is None:
                     raise HTTPException(status_code=status.HTTP_401_UNAUTHORIZED,
                                         detail ='Could not validate user.')
-                print(roles_list)
                 if role in roles_list:
                     return func(*args, **kwargs)
                 else:
