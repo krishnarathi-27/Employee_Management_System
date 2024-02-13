@@ -12,6 +12,7 @@ from routers.user_routers import router as user_router
 from routers.salary_routers import router as salary_router
 from models.database import Database
 
+
 security = HTTPBasic()
 
 app = FastAPI(

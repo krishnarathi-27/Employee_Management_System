@@ -21,6 +21,7 @@ ALGORITHM = 'HS256'
 async def login_user(request_data: LoginSchema):
 
     try:
+        print("hi")
         result = obj_auth_controller.validate_user(request_data.username,request_data.password)
 
         if not result:
@@ -34,6 +35,8 @@ async def login_user(request_data: LoginSchema):
     except sqlite3.Error as Error:
         print(Error)
         raise HTTPException(500, detail="Server not responding")
+    except Exception as err:
+        print(err)
     
 def create_access_token(role: str, user_id: str, expires_delta: timedelta):
 
