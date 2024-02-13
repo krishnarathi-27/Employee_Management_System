@@ -4,6 +4,10 @@ verify_ssl = true
 name = "pypi"
 
 [packages]
+fastapi = "*"
+python-jose = {extras = ["cryptography"], version = "*"}
+shortuuid = "*"
+python-dotenv = "*"
 
 [dev-packages]
 
