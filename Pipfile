@@ -8,6 +8,7 @@ fastapi = "*"
 python-jose = {extras = ["cryptography"], version = "*"}
 shortuuid = "*"
 python-dotenv = "*"
+uvicorn = {extras = ["standard"], version = "*"}
 
 [dev-packages]
 
