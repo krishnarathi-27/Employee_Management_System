@@ -27,7 +27,9 @@ async def login_user(request_data: LoginSchema):
             raise HTTPException(401, detail="Invalid credeentials")
 
         token = create_access_token(result[0], result[1], timedelta(minutes=15))
-        return {'token' : token}
+        return {'token' : token,
+                'message': "User logged in Successfully"
+                }
     
     except sqlite3.Error as Error:
         print(Error)

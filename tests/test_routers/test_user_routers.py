@@ -25,3 +25,9 @@ def test_post_new_user(override_admin):
     response = client.post("/users",json=request_data)
     assert response.status_code == status.HTTP_201_CREATED
 
+def test_post_new_user_new(override_admin):
+    request_data = {'role': 'employee','username': 'agrima','password': 'Krishna@12','age': '23',
+                        'mail': 'agrima@gmail.com','gender': 'female',
+                                    'phone': '6776767676'}
+    response = client.post("/users",json=request_data)
+    assert response.status_code == status.HTTP_409_CONFLICT

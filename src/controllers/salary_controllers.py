@@ -27,8 +27,7 @@ class SalaryControllers:
         else:
             return True
         
-    def save_salary_status(self,employee_id,salary_month):
-        salary_id =  "SID" + shortuuid.ShortUUID().random(length=4)
+    def save_salary_status(self,salary_id,employee_id,salary_month):
         data = Database.fetch_data(Queries.QUERY_TO_CALCULATE_LEAVES,(employee_id,))
         
         if not data:

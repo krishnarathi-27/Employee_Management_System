@@ -29,10 +29,7 @@ def get_leaves(token : token_dependency):
 def get_leaves_by_id(token : token_dependency,user_id):
     try:
         data = leave_obj.view_leaves_employee(user_id)
-        if data:
-            return data
-        else:
-            raise HTTPException(404, "Leaves data not found")
+        return data
         
     except sqlite3.Error:
         raise HTTPException(500, detail="Server not responding")

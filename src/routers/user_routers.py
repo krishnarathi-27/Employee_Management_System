@@ -21,10 +21,7 @@ router = APIRouter()
 def get_users(token : token_dependency):
     try:
         data = admin_obj.view_user()
-        if data:
-            return data
-        else:
-            raise HTTPException(404, "Uer data not found")
+        return data
         
     except sqlite3.Error:
         raise HTTPException(500, detail="Server not responding")
@@ -55,8 +52,8 @@ def post_leaves(token : token_dependency,user_data = Body()):
             return {"message" :"User created successfully"}
         
         raise HTTPException(500, detail="Server not responding")
-    except sqlite3.IntegrityError:
-        print("hi")
+    except sqlite3.IntegrityError as err:
+        print(err)
         raise HTTPException(409, detail="Resource already exists")
     except sqlite3.Error:
         raise HTTPException(500, detail="Server not responding")

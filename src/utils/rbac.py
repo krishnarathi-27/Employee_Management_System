@@ -20,6 +20,7 @@ def role_required(roles_list):
                 role: str = payload.get('sub')
                 user_id: int = payload.get('id')
                 if role is None or user_id is None:
+                    print("hhi")
                     raise HTTPException(status_code=status.HTTP_401_UNAUTHORIZED,
                                         detail ='Could not validate user.')
                 if role in roles_list:
@@ -27,7 +28,6 @@ def role_required(roles_list):
                 else:
                     raise HTTPException(status_code=403, detail='Access denied')
             except JWTError as error:
-                print(error)
                 raise HTTPException(status_code=status.HTTP_401_UNAUTHORIZED,
                                 detail ='Could not validate user.')
         return wrapper

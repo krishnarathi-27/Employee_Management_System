@@ -10,6 +10,7 @@ from routers.auth_routers import router as auth_router
 from routers.leave_routers import router as leave_router
 from routers.user_routers import router as user_router
 from routers.salary_routers import router as salary_router
+from models.database import Database
 
 security = HTTPBasic()
 

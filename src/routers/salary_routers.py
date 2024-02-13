@@ -15,10 +15,7 @@ router = APIRouter()
 def get_salary(token : token_dependency):
     try:
         data = salary_obj.view_salary()
-        if data:
-            return data
-        else:
-            raise HTTPException(404, "Salary data not found")
+        return data
         
     except sqlite3.Error:
         raise HTTPException(500, detail="Server not responding")
@@ -41,11 +38,11 @@ def get_salary_by_user_id(token : token_dependency,user_id):
 def post_salary(token : token_dependency, salary_data = Body()):
     salary_id = "LID" + shortuuid.ShortUUID().random(length=4)
     try:  
-        result = salary_obj.save_salary_status(salary_data['employee_id'],salary_data['salary_month'])
+        result = salary_obj.save_salary_status(salary_id,salary_data['employee_id'],salary_data['salary_month'])
 
         if result: 
-            return {"message" :"Leaves added successfully"}
-            
+            return {"message" :"Salary added successfully"}
+           
         raise HTTPException(500, detail="Server not responding")
     
     except sqlite3.IntegrityError:
