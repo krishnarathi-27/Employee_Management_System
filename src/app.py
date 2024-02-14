@@ -14,7 +14,6 @@ from config.app_config import AppConfig
 from models.database import Database
 
 
-Database.create_all_table()
 security = HTTPBasic()
 
 app = FastAPI(
