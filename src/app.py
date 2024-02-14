@@ -11,8 +11,10 @@ from routers.leave_routers import router as leave_router
 from routers.user_routers import router as user_router
 from routers.salary_routers import router as salary_router
 from config.app_config import AppConfig
+from models.database import Database
 
 
+Database.create_all_table()
 security = HTTPBasic()
 
 app = FastAPI(
@@ -25,6 +27,7 @@ app = FastAPI(
 )
 
 print(AppConfig.DATABASE_LOCATION)
+
 
 def get_current_username(credentials: HTTPBasicCredentials = Depends(security)) -> str:
     correct_username = secrets.compare_digest(credentials.username, "krishna")
