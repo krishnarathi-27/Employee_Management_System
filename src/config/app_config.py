@@ -7,7 +7,7 @@ class AppConfig:
     MAX_LOGIN_ATTEMPTS = 3
     PAID_LEAVES = 1
     BASE_SALARY = 30000
-    DATABASE_LOCATION = os.path.abspath(os.curdir) + "/src/models/employee_management.db"
+    DATABASE_LOCATION = os.path.abspath(os.curdir) + "\models\employee_management.db"
     TEST_DB_PATH = "tests/test_db.db"
     LOG_FILE_LOCATION = 'logs.txt'
 

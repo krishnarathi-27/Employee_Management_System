@@ -23,6 +23,7 @@ class AuthControllers:
         Return type : bool
         """
         user_data = Database.fetch_data(Queries.FETCH_USER_CREDENTIALS, (username,))
+        print(user_data)
         if user_data:
             password = user_data[0][1]
             role = user_data[0][2]

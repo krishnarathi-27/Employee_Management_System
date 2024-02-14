@@ -23,11 +23,12 @@ async def login_user(request_data: LoginSchema):
     try:
         print("hi")
         result = obj_auth_controller.validate_user(request_data.username,request_data.password)
-
+        print(result)
         if not result:
             raise HTTPException(401, detail="Invalid credeentials")
 
         token = create_access_token(result[0], result[1], timedelta(minutes=15))
+        print(token)
         return {'token' : token,
                 'message': "User logged in Successfully"
                 }

@@ -20,6 +20,7 @@ router = APIRouter()
 @role_required(["admin"])
 def get_users(token : token_dependency):
     try:
+        print("hiii")
         data = admin_obj.view_user()
         return data
         

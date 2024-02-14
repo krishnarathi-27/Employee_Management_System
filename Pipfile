@@ -9,6 +9,7 @@ python-jose = {extras = ["cryptography"], version = "*"}
 shortuuid = "*"
 python-dotenv = "*"
 uvicorn = {extras = ["standard"], version = "*"}
+ujson = "*"
 
 [dev-packages]
 
