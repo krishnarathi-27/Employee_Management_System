@@ -316,3 +316,17 @@ AttributeError: 'EmployeeViews' object has no attribute 'obj_salary_controller'
 2023-12-15 12:16:50,353 INFO     [main.py:20] Welcome to Employee Management System
 2023-12-15 12:16:56,938 INFO     [auth_controllers.py:47] Providing role based access to authenticated user
 2023-12-15 12:16:56,939 INFO     [employee_views.py:29] Admin logged in the system
+2024-06-10 23:05:53,369 INFO     [main.py:20] Welcome to Employee Management System
+2024-06-10 23:06:07,884 INFO     [auth_controllers.py:47] Providing role based access to authenticated user
+2024-06-10 23:06:07,884 INFO     [admin_views.py:29] Admin logged in the system
+2024-06-10 23:06:35,462 INFO     [auth_views.py:53] Login attempt resetting
+2024-06-10 23:12:20,118 INFO     [main.py:20] Welcome to Employee Management System
+2024-06-10 23:12:30,714 INFO     [auth_views.py:49] Login attempts reducing due to invalid login
+2024-06-10 23:12:41,555 INFO     [auth_views.py:49] Login attempts reducing due to invalid login
+2024-06-10 23:13:04,850 INFO     [auth_views.py:49] Login attempts reducing due to invalid login
+2024-06-10 23:14:44,149 INFO     [main.py:20] Welcome to Employee Management System
+2024-06-10 23:15:54,250 INFO     [auth_controllers.py:47] Providing role based access to authenticated user
+2024-06-10 23:15:54,250 INFO     [employee_views.py:29] Admin logged in the system
+2024-06-10 23:18:47,121 INFO     [main.py:20] Welcome to Employee Management System
+2024-06-10 23:18:59,318 INFO     [auth_controllers.py:47] Providing role based access to authenticated user
+2024-06-10 23:18:59,318 INFO     [employee_views.py:29] Admin logged in the system

@@ -30,6 +30,7 @@ class PromptsConfig:
     INVALID_INPUT = None
     LEAVE_ERROR = None
     USER_ADDED_SUCCESS = None
+    WELCOME_EMPLOYEE_MESSAGE = None
 
     # authentication file
     EXIT_SYSTEM_PROMPT = None
@@ -65,6 +66,7 @@ class PromptsConfig:
             cls.LEAVE_STATUS_PROMPT = data['LEAVE_STATUS_PROMPT']
 
             cls.WELCOME_MESSAGE = data['WELCOME_MESSAGE']
+            cls.WELCOME_EMPLOYEE_MESSAGE = data['WELCOME_EMPLOYEE_MESSAGE']
             cls.ROW_NOT_EXISTS_MESSAGE = data['ROW_NOT_EXISTS_MESSAGE']
             cls.WRONG_INPUT_ENTERED_MESSAGE = data['WRONG_INPUT_ENTERED_MESSAGE']
             cls.ENTER_GENDER = data['ENTER_GENDER']

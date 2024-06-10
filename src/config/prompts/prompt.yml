@@ -49,6 +49,7 @@ ENTER_PHONE_NO : Enter employee phone number:-
 ENTER_MAIL : Enter employee mail id:- 
 ENTER_AGE : Enter age of employee:- 
 WELCOME_ADMIN_MESSAGE : Welcome Admin
+WELCOME_EMPLOYEE_MESSAGE : Welcome Employee
 ENTER_EMP_ID : Enter the employee id :- 
 ENTER_LEAVE_ID : Enter leave id to update leave status:- 
 ENTER_LEAVE_STATUS : Update status to:- cancel/approved/rejected:- 

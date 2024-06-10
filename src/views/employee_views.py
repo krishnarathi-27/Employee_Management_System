@@ -27,7 +27,7 @@ class EmployeeViews(LeavesViews,SalaryViews):
         self.obj_employee_controller = EmployeeControllers(db_object)
 
         logger.info(LoggingConfig.LOG_ADMIN_LOGGED_IN)
-        print(PromptsConfig.WELCOME_ADMIN_MESSAGE)
+        print(PromptsConfig.WELCOME_EMPLOYEE_MESSAGE)
 
     def display_user_details(self) -> None:
         """ Method to display logged in users detail from table """
