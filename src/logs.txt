@@ -1200,3 +1200,11 @@
 2024-01-17 16:13:44,202 INFO     [_internal.py:96] 127.0.0.1 - - [17/Jan/2024 16:13:44] "GET /user HTTP/1.1" 200 -
 2024-01-17 16:14:09,086 INFO     [_internal.py:96] 127.0.0.1 - - [17/Jan/2024 16:14:09] "POST /logout HTTP/1.1" 200 -
 2024-01-17 16:14:13,212 INFO     [_internal.py:96] 127.0.0.1 - - [17/Jan/2024 16:14:13] "[31m[1mGET /user HTTP/1.1[0m" 401 -
+2024-06-10 23:26:35,116 INFO     [_internal.py:96] [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2024-06-10 23:26:35,116 INFO     [_internal.py:96] [33mPress CTRL+C to quit[0m
+2024-06-10 23:26:56,761 INFO     [_internal.py:96] 127.0.0.1 - - [10/Jun/2024 23:26:56] "[33mGET /docs HTTP/1.1[0m" 404 -
+2024-06-10 23:26:57,023 INFO     [_internal.py:96] 127.0.0.1 - - [10/Jun/2024 23:26:57] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2024-06-10 23:27:57,635 INFO     [_internal.py:96] 127.0.0.1 - - [10/Jun/2024 23:27:57] "[33mGET /swagger HTTP/1.1[0m" 404 -
+2024-06-10 23:28:02,002 INFO     [_internal.py:96] 127.0.0.1 - - [10/Jun/2024 23:28:02] "GET /swagger-ui HTTP/1.1" 200 -
+2024-06-10 23:28:03,228 INFO     [_internal.py:96] 127.0.0.1 - - [10/Jun/2024 23:28:03] "GET /openapi.json HTTP/1.1" 200 -
